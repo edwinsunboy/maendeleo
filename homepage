@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+ nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #slideshow {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        .slides .slide {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .dot-container {
+            text-align: center;
+        }
+  .dot {
+            height: 15px;
+            width: 15px;
+            margin: 10px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .product, .ad {
+            margin: 20px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #333;
+            color: white;
+        }
+
+        @media (min-width: 600px) {
+            .product {
+                display: inline-block;
+                width: 30%;
+            }
+        }
+ </style>
+</head>
+<body>
+    <header>
+        <h1>MAENDELEO MACHINGA</h1>
+        <nav>
+            <ul>
+                <li><a href="homemaendeleo.html">Home</a></li>
+                <li><a href="1product.html">Products</a></li>
+                <li><a href="1onlineshopping.html">SHOPPING</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <section id="slideshow">
+        <div class="slides">
+            <div class="slide fade">
+                <img src="product3.jpeg" alt="Slide 1">
+            </div>
+            <div class="slide fade">
+                <img src="images1.jpeg" alt="Slide 2">
+            </div>
+            <div class="slide fade">
+                <img src="images3.jpeg" alt="Slide 3">
+            </div>
+        </div>
+<div class="dot-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+
+    <section id="products">
+        <h2>Featured Products</h2>
+        <div class="product">
+            <img src="images4.jpeg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>Product 1 description here.</p>
+        </div>
+        <div class="product">
+            <img src="images5.jpeg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>Product 2 description here.</p>
+        </div>
+        <div class="product">
+            <img src="images5.jpeg" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>Product 3 description here.</p>
+        </div>
+    </section>
+<section id="ads">
+        <h2>Advertisements</h2>
+        <div class="ad">
+            <img src="images8.jpeg" alt="Ad 1">
+        </div>
+        <div class="ad">
+            <img src="images9-min.jpeg" alt="Ad 2">
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 MAENDELEO MACHINGA. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            const slides = document.getElementsByClassName("slide");
+            const dots = document.getElementsByClassName("dot");
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+   slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }    
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            
+            slides[slideIndex - 1].style.display = "block";  
+            dots[slideIndex - 1].className += " active";
+            
+            setTimeout(showSlides, 3000); // Change slide every 3 seconds
+        }
+
+        function currentSlide(n) {
+            slideIndex = n - 1;
+            showSlides();
+        }
+    </script>
+</body>
+</html>
